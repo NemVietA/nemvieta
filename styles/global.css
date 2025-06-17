@@ -1,0 +1,600 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700&family=Lexend:wght@100;200;300;400;500;600;700&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100;200;300;400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Questrial&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+.scroll-middle-view {
+  scroll-margin-top: 25vh;
+}
+
+/*<---------------------------------------------------------- Animation ----------------------------------------------------------> */
+.call-animation {
+  padding: 10px;
+  background-color: rgb(221, 51, 51);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+}
+
+.circle-animation {
+  animation: rotate 15s linear infinite;
+}
+.circle-animation:hover {
+  animation: rotate 5s linear infinite;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.call-animation::before {
+  content: "";
+  position: absolute;
+  border: 1px solid #ed1b2e;
+  width: calc(100% + 40px);
+  height: calc(100% + 40px);
+  border-radius: 50%;
+  animation: pulse 1s linear infinite;
+}
+
+.call-animation::after {
+  content: "";
+  position: absolute;
+  border: 1px solid #ed1b2e;
+  width: calc(100% + 40px);
+  height: calc(100% + 40px);
+  border-radius: 50%;
+  animation: pulse 1s linear infinite;
+  animation-delay: 0.3s;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+
+  50% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1.3);
+    opacity: 0;
+  }
+}
+
+/*<---------------------------------------------------------- Truncate ----------------------------------------------------------> */
+.truncate1 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.truncate2 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.truncate3 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.truncate5 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/*<---------------------------------------------------------- CSS Grid custom ----------------------------------------------------------> */
+
+.cols-4 {
+  grid-template-columns: 15% 35% 30% 20%;
+}
+
+.cols-5 {
+  grid-template-columns: 10% 30% 20% 10% 30%;
+}
+.cols-10 {
+  grid-template-columns: 5% 10% 15% 15% 10% 10% 15% 10% 5% 5%;
+}
+
+.cols-3 {
+  grid-template-columns: 10% 70% 20%;
+}
+.cols-7 {
+  grid-template-columns: 5% 10% 10% 10% 10% 15% 40%;
+}
+
+/*<---------------------------------------------------------- Swiper Custom ----------------------------------------------------------> */
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-pagination-bullet {
+  width: 20px !important;
+  height: 20px !important;
+  border-width: 2px !important;
+  border-color: white !important;
+  opacity: 1 !important;
+  text-align: center;
+  line-height: 20px;
+  font-size: 12px;
+  color: #000;
+  background: none !important;
+}
+
+.swiper-pagination-bullet-active {
+  color: white !important;
+  background: white !important;
+}
+
+.CKEditor figure > img {
+  max-width: 100px;
+  max-height: 100px;
+}
+
+/*<-------------------------------------------------------------------------------------------------------------------- CUSTOM --------------------------------------------------------------------------------------------------------------------> */
+/* keyframes.css */
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes translateXReset {
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeToTransparent {
+  0% {
+    opacity: 1;
+  }
+  40% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.backInLeft {
+  display: inline-block;
+  margin: 0 0.5rem;
+
+  animation: bounce; /* referring directly to the animation's @keyframe declaration */
+  animation-duration: 2s; /* don't forget to set a duration! */
+}
+
+/* css slider */
+.slider {
+  position: relative;
+}
+.slider .list .item {
+  position: absolute;
+  inset: 0 0 0 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: 0.5s;
+}
+.slider .list .item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.slider .list .item::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  /* background-image: linear-gradient(
+      to top, #d2dcf5 10%, transparent
+  ); */
+}
+.slider .list .item .content {
+  position: absolute;
+  left: 10%;
+  top: 20%;
+  width: 500px;
+  max-width: 80%;
+  z-index: 1;
+}
+.slider .list .item .content p:nth-child(1) {
+  text-transform: uppercase;
+  letter-spacing: 10px;
+}
+.slider .list .item .content h2 {
+  font-size: 100px;
+  margin: 0;
+}
+.slider .list .item.active {
+  opacity: 1;
+  /* z-index: 5; */
+}
+@keyframes showContent {
+  to {
+    transform: translateY(0);
+    filter: blur(0);
+    opacity: 1;
+  }
+}
+.slider .list .item.active p:nth-child(1),
+.slider .list .item.active h2,
+.slider .list .item.active p:nth-child(3) {
+  transform: translateY(30px);
+  filter: blur(20px);
+  opacity: 0;
+  animation: showContent 0.5s 0.7s ease-in-out 1 forwards;
+}
+.slider .list .item.active h2 {
+  animation-delay: 1s;
+}
+.slider .list .item.active p:nth-child(3) {
+  animation-duration: 1.3s;
+}
+.arrows {
+  width: 100%;
+  position: absolute;
+  bottom: 50%;
+  z-index: 100;
+  transform: translateY(50%);
+  padding: 0 5px;
+}
+.arrows button {
+  border: none;
+  font-family: monospace;
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
+  font-size: x-large;
+  /* color: #eee; */
+  transition: 0.5s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #eee;
+  opacity: 0.5;
+}
+.arrows button:hover {
+  background-color: #eee;
+  color: black;
+}
+.thumbnail {
+  position: absolute;
+  bottom: 25%;
+  transform: translateY(50%);
+  z-index: 11;
+  gap: 10px;
+  width: 100%;
+  height: 250px;
+  padding: 0 50px;
+  box-sizing: border-box;
+  overflow: auto;
+  justify-content: end;
+  align-items: end;
+}
+.thumbnail::-webkit-scrollbar {
+  width: 0;
+}
+.thumbnail .item {
+  width: 110px;
+  height: 190px;
+  filter: brightness(0.5);
+  transition: 0.5s;
+  flex-shrink: 0;
+}
+.thumbnail .item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+.thumbnail .item.active {
+  filter: brightness(1.1);
+}
+.thumbnail .item .content {
+  position: absolute;
+  inset: auto 10px 10px 10px;
+}
+@media screen and (max-width: 678px) {
+  .thumbnail {
+    justify-content: start;
+  }
+  .slider .list .item .content h2 {
+    font-size: 60px;
+  }
+}
+
+.animate__animated.animate__shakeY {
+  --animate-duration: 25s;
+}
+
+.animate__animated.animate__backInRight {
+  --animate-duration: 1s;
+}
+.reposive-h-slider {
+  height: 65vh;
+}
+
+@media screen and (max-width: 678px) {
+  .reposive-h-slider {
+    height: 30vh;
+  }
+}
+
+.animate__animated.delay-custom {
+  --animate-delay: 0.1s;
+}
+
+.continuous-2 {
+  width: 200px;
+  height: 20px;
+  background: linear-gradient(90deg, #0000, orange) left -50px top 0/50px 20px no-repeat
+    lightblue;
+  animation: ct2 1s infinite linear;
+}
+
+@keyframes ct2 {
+  100% {
+    background-position: right -50px top 0;
+  }
+}
+
+.classic-4 {
+  font-weight: bold;
+  font-family: monospace;
+  font-size: 30px;
+  clip-path: inset(0 3ch 0 0);
+  animation: c4 1s steps(4) infinite;
+}
+@keyframes c4 {
+  to {
+    clip-path: inset(0 -1ch 0 0);
+  }
+}
+@media screen and (max-width: 768px) {
+  .classic-4 {
+    font-size: 20px;
+  }
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none; /* Ẩn thanh cuộn trên Chrome và Safari */
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none; /* Ẩn thanh cuộn trên IE và Edge cũ */
+  scrollbar-width: none; /* Ẩn thanh cuộn trên Firefox */
+}
+
+
+/* Media Queries cho thiết bị di động */
+@media (max-width: 768px) {
+  .cart-item {
+    flex-direction: column;
+    align-items: center;
+    padding: 12px;
+  }
+
+  .quantity-controls {
+    flex-direction: row;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .cart-item-image {
+    max-width: 150px; /* Giảm kích thước ảnh trên màn hình di động */
+  }
+
+  .remove-item-button {
+    width: 100%;
+    margin-top: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .cart-container {
+    padding: 12px;
+  }
+
+  .quantity-button {
+    padding: 6px 12px;
+  }
+
+  .cart-item-details h3 {
+    font-size: 14px;
+  }
+}
+
+
+.cart-button {
+  position: relative;
+  padding: 10px 20px;
+  background-color: blue;
+  color: white;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.cart-quantity-badge {
+  position: absolute;
+  top: -5px;
+  right: -10px;
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  font-size: 12px;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+}
+
+/* Container chính của giỏ hàng */
+.cart-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9fafb;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Tiêu đề giỏ hàng */
+.cart-container h1 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Danh sách các sản phẩm trong giỏ hàng */
+.cart-items-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Chi tiết mỗi sản phẩm */
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.cart-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Ảnh sản phẩm */
+.cart-item-image {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* Chi tiết sản phẩm */
+.cart-item-details {
+  flex-grow: 1;
+  padding-left: 20px;
+}
+
+/* Tên sản phẩm */
+.cart-item-details h3 {
+  font-size: 1.1rem;
+  color: #333;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+/* Các nút điều chỉnh số lượng */
+.cart-item-details .flex {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cart-item-details button {
+  padding: 8px 15px;
+  font-size: 1.1rem;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.cart-item-details button:hover {
+  background-color: #e5e7eb;
+}
+
+/* Nút xóa sản phẩm */
+.remove-item-button {
+  padding: 8px 15px;
+  background-color: #ef4444;
+  color: white;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.2s;
+}
+
+.remove-item-button:hover {
+  background-color: #dc2626;
+}
+
+/* Câu thông báo khi giỏ hàng trống */
+.cart-container .text-center p {
+  font-size: 1.2rem;
+  color: #464545;
+}
+
+/* Nút Tiếp tục mua hàng */
+button {
+  padding: 12px 24px;
+  font-size: 1.1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+button:hover {
+  background-color: #2563eb;
+}
+
+button:focus {
+  outline: none;
+}
+
+/* Nút Tiếp tục mua hàng khi giỏ hàng trống */
+.cart-container .text-center button {
+  background-color: #2563eb;
+  color: white;
+}
+
+.cart-container .text-center button:hover {
+  background-color: #1d4ed8;
+}
+
+
